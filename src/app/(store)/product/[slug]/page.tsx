@@ -1,20 +1,15 @@
 import Image from "next/image";
-import {Product} from "@/data/types/products";
-import {api} from "@/data/api";
+import {Metadata} from "next";
+import {AddToCartButton} from "@/components/AddToCartButton";
+import {getProduct} from "@/app/(store)/product/[slug]/constants";
+import {ProductProps} from "@/app/(store)/product/[slug]/types";
 
-interface ProductProps {
-  params: {
-    slug: string;
+export async function generateMetadata({params}: ProductProps): Promise<Metadata> {
+  const product = await getProduct(params.slug)
+
+  return {
+    title: product.title,
   }
-}
-
-async function getProduct(slug: string): Promise<Product> {
-  const response = await api(`/products/${slug}`, {
-    next: {
-      revalidate: 60 * 60,
-    },
-  });
-  return await response.json();
 }
 
 export default async function ProductPage({params}: ProductProps) {
@@ -87,13 +82,7 @@ export default async function ProductPage({params}: ProductProps) {
           </div>
         </div>
 
-        <button
-          type='button'
-          className='bg-emerald-500 text-white rounded-full py-3.5 font-semibold'
-        >
-          Adicionar ao carrinho
-        </button>
-
+        <AddToCartButton productId={product.id}/>
       </div>
     </div>
   )

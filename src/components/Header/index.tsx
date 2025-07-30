@@ -1,6 +1,7 @@
-import { Search, ShoppingBag } from "lucide-react";
+import {Search} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import {CartWidget} from "@/components/CartWidget";
 
 export function Header() {
   return (
@@ -10,7 +11,8 @@ export function Header() {
           devstore
         </Link>
         <form className="flex bg-zinc-900 w-[320px] rounded-full h-[44px] px-5 py-3 gap-3 items-center ring-zinc-700">
-          <Search className="text-zinc-500 w-5 h-5" />
+          <Search className="text-zinc-500 w-5 h-5"/>
+
           <input
             placeholder="Buscar produtos..."
             className="flex-1 bg-transparent text-sm text-zinc-100 outline-none placeholder:text-zinc-500"
@@ -19,12 +21,9 @@ export function Header() {
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <ShoppingBag width={16} className="text-gray-50" />
-          <span>Cart (3)</span>
-        </div>
+        <CartWidget/>
 
-        <div className="w-px h-4 bg-zinc-700" />
+        <div className="w-px h-4 bg-zinc-700"/>
 
         <Link href="/" className="flex items-center gap-2 hover:underline">
           <span className="text-sm">Account</span>

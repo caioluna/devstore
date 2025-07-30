@@ -1,16 +1,9 @@
 import {FeaturedLink} from "@/components/FeaturedLink";
-import {api} from "@/data/api";
-import {Product} from "@/data/types/products";
+import {Metadata} from "next";
+import {getFeaturedProducts} from "@/app/(store)/(home)/constants";
 
-async function getFeaturedProducts(): Promise<Product[]> {
-  await new Promise(resolve => setTimeout(resolve, 2000));
-
-  const response = await api("/products/featured", {
-    next: {
-      revalidate: 60 * 60,
-    },
-  });
-  return await response.json();
+export const metadata: Metadata = {
+  title: "Home",
 }
 
 export default async function Home() {
