@@ -10,7 +10,7 @@ export default async function SearchPage() {
       <div className='grid grid-cols-3 gap-6'>
         <FeaturedLink
           key={1}
-          href={'moletom-never-stop-learning'}
+          href={'/product/moletom-never-stop-learning'}
           imageUrl={'/moletom-never-stop-learning.png'}
           label={'Moletom Never Stop Learning'}
           price={129}
@@ -18,7 +18,7 @@ export default async function SearchPage() {
         />
         <FeaturedLink
           key={1}
-          href={'moletom-never-stop-learning'}
+          href={'/product/moletom-never-stop-learning'}
           imageUrl={'/moletom-never-stop-learning.png'}
           label={'Moletom Never Stop Learning'}
           price={129}
@@ -26,7 +26,7 @@ export default async function SearchPage() {
         />
         <FeaturedLink
           key={1}
-          href={'moletom-never-stop-learning'}
+          href={'/product/moletom-never-stop-learning'}
           imageUrl={'/moletom-never-stop-learning.png'}
           label={'Moletom Never Stop Learning'}
           price={129}
